@@ -1,0 +1,35 @@
+@"
+# Java / Spring Boot
+target/
+build/
+.gradle/
+*.class
+
+# React / Node
+node_modules/
+dist/
+.next/
+coverage/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Secrets
+.env
+.env.*
+!.env.example
+application-local.yml
+application-local.properties
+
+# Binaries
+*.apk
+*.zip
+*.jar
+*.war
+
+# Logs
+*.log
+logs/
+"@ | Set-Content -Encoding utf8 .gitignore
