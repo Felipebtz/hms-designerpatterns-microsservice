@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@source "./";
+
+@theme {
+  --font-heading: "Merriweather", serif;
+  --font-sans: "Poppins", sans-serif;
+
+  --color-condo-primary: #ff5a0a;
+  --color-condo-header: #400849;
+  --color-condo-sidebar: #400849;
+  --color-condo-deep: #400849;
+  --color-condo-signal-orange: #ff5a0a;
+  --color-condo-pastel-pink: #e7b0de;
+}

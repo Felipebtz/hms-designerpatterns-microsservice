@@ -1,6 +1,7 @@
 import './App.css';
 import '@mantine/core/styles.css';
-import { Button, createTheme, MantineProvider } from '@mantine/core';
+import { createTheme, MantineProvider } from '@mantine/core';
+import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './Routes/AppRoutes';
 
 const theme = createTheme({
@@ -9,17 +10,43 @@ const theme = createTheme({
   headings: {fontFamily: "Merriweather, serif"},
   colors: {
     primary: [
-      '#f1fcfa',
-      '#cff8ef',
-      '#9ff0e1',
-      '#67e1cf',
-      '#32b9a9',
-      '#1fad9f',
-      '#168b82',
-      '#166f69',
-      '#165955',
-      '#174a47',
-      '#072c2b',
+      '#fff1eb',
+      '#ffd9c7',
+      '#ffc0a3',
+      '#ffa47a',
+      '#ff8a52',
+      '#ff5a0a',
+      '#dc4b08',
+      '#b83e07',
+      '#933205',
+      '#6e2604',
+      '#491903',
+    ],
+    deep: [
+      '#f8eff9',
+      '#ecd7ef',
+      '#dfbfe5',
+      '#d0a1d9',
+      '#bd7ac7',
+      '#a052ae',
+      '#823991',
+      '#682274',
+      '#54105e',
+      '#48094f',
+      '#400849',
+    ],
+    signalOrange: [
+      '#fff1eb',
+      '#ffd9c7',
+      '#ffc0a3',
+      '#ffa47a',
+      '#ff8a52',
+      '#ff5a0a',
+      '#dc4b08',
+      '#b83e07',
+      '#933205',
+      '#6e2604',
+      '#491903',
     ],
     neutral: [
       '#f6f6f6',
@@ -35,7 +62,7 @@ const theme = createTheme({
       '#000000',
     ],
   },
-  primaryColor: 'primary',
+  primaryColor: 'signalOrange',
   primaryShade: 4,
   defaultGradient: {
     from: 'primary.4',
@@ -47,7 +74,9 @@ const theme = createTheme({
 function App() {
   return (
     <MantineProvider theme={theme}>
-      <AppRoutes />
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
     </MantineProvider>
   );
 }
