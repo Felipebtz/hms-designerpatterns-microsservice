@@ -5,6 +5,7 @@ import {
   IconLayoutDashboard,
   IconSettings,
   IconUsers,
+  IconBriefcase,
   type Icon as TablerIcon,
 } from '@tabler/icons-react';
 import { NavLink } from 'react-router-dom';
@@ -23,9 +24,12 @@ type NavigationItem = {
 
 const navigationItems: NavigationItem[] = [
   { label: 'Dashboard', to: '/dashboard', icon: IconLayoutDashboard },
-  { label: 'Usuários', to: '/usuarios', icon: IconUsers },
-  { label: 'Condomínios', to: '/condominios', icon: IconBuilding },
-  { label: 'Configurações', to: '/configuracoes', icon: IconSettings },
+  { label: 'Moradores', to: '/moradores', icon: IconUsers },
+  { label: 'Filiais',   to: '/sellers', icon: IconBriefcase },
+
+  { label: 'Produtos', to: '/produtos', icon: IconBuilding },
+
+
 ];
 
 const Sidebar = ({ collapsed, mobileOpen, onCloseMobile }: SidebarProps) => {
@@ -59,8 +63,9 @@ const Sidebar = ({ collapsed, mobileOpen, onCloseMobile }: SidebarProps) => {
           )}
         </div>
 
-        <nav className="mt-10 flex flex-1 flex-col gap-2" aria-label="Navegação principal">
-          {navigationItems.map(({ label, to, icon: Icon }) => {
+        <nav className="mt-10 flex flex-1 flex-col gap-2 justify-between" aria-label="Navegação principal">
+          <div className="flex flex-col gap-2">
+         {navigationItems.map(({ label, to, icon: Icon }) => {
             const link = (
               <NavLink
                 key={to}
@@ -85,10 +90,33 @@ const Sidebar = ({ collapsed, mobileOpen, onCloseMobile }: SidebarProps) => {
               <Tooltip key={to} label={label} position="right" withArrow>{link}</Tooltip>
             ) : link;
           })}
-        </nav>
+        </div>
+        {/*Rodape*/}
+        <div className="mb-4">
+    <NavLink
+      to="/configuracoes"
+      className={({ isActive }) =>
+        [
+          'flex items-center rounded-xl py-3 text-sm font-medium transition-colors',
+          collapsed && !mobileOpen
+            ? 'justify-center px-0'
+            : 'gap-3 px-3',
+          isActive
+            ? 'bg-condo-primary text-white shadow-sm'
+            : 'text-condo-pastel-pink hover:bg-white/15 hover:text-white',
+        ].join(' ')
+      }
+    >
+      <IconSettings size={21} stroke={1.8} />
+      {(!collapsed || mobileOpen) && <span>Configurações</span>}
+    </NavLink>
 
-        {(!collapsed || mobileOpen) && <p className="px-2 text-xs text-condo-pastel-pink/70">CondoCenter Admin</p>}
-      </aside>
+    <div className="mt-6 px-3 text-xs text-condo-pastel-pink">
+      CondoCenter Admin
+    </div>
+  </div>
+</nav>
+</aside>
     </>
   );
 };

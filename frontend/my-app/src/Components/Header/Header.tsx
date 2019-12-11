@@ -1,10 +1,11 @@
-import { ActionIcon, Tooltip } from '@mantine/core';
+import { ActionIcon, Button } from '@mantine/core';
 import {
-  IconBell,
   IconLayoutSidebarLeftCollapse,
-  IconLayoutSidebarLeftExpand,
+  IconBell,
 } from '@tabler/icons-react';
+
 import ProfileMenu from './ProfileMenu';
+import { Link } from 'react-router-dom';
 
 type HeaderProps = {
   collapsed: boolean;
@@ -13,29 +14,52 @@ type HeaderProps = {
 
 const Header = ({ collapsed, onToggleSidebar }: HeaderProps) => {
   return (
-    <header className="flex h-16 shrink-0 items-center justify-between bg-condo-header px-4 shadow-sm sm:px-6">
-      <Tooltip label={collapsed ? 'Expandir menu' : 'Recolher menu'} withArrow>
+    <header
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        height: 64,
+        minHeight: 64,
+        padding: '0 20px',
+        backgroundColor: '#cff8ef',
+        boxSizing: 'border-box',
+      }}
+    >
+      <ActionIcon
+        variant="transparent"
+        size="lg"
+        aria-label={collapsed ? 'Expandir sidebar' : 'Recolher sidebar'}
+        onClick={onToggleSidebar}
+      >
+        <IconLayoutSidebarLeftCollapse
+          size={24}
+          stroke={1.5}
+          style={{
+            transform: collapsed ? 'rotate(180deg)' : 'none',
+            transition: 'transform 200ms ease',
+          }}
+        />
+      </ActionIcon>
+          
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 20,
+        }}
+      >
+        <Link to= "login">
+        <Button>Entrar</Button>
+        </Link>
         <ActionIcon
-          variant="subtle"
-          color="gray"
+          variant="transparent"
           size="lg"
-          aria-label={collapsed ? 'Expandir sidebar' : 'Recolher sidebar'}
-          onClick={onToggleSidebar}
+          aria-label="Notificações"
         >
-          {collapsed ? (
-            <IconLayoutSidebarLeftExpand size={24} stroke={1.7} />
-          ) : (
-            <IconLayoutSidebarLeftCollapse size={24} stroke={1.7} />
-          )}
+          <IconBell size={24} stroke={1.5} />
         </ActionIcon>
-      </Tooltip>
 
-      <div className="flex items-center gap-2 sm:gap-4">
-        <Tooltip label="Notificações" withArrow>
-          <ActionIcon variant="subtle" color="gray" size="lg" aria-label="Notificações">
-            <IconBell size={23} stroke={1.7} />
-          </ActionIcon>
-        </Tooltip>
         <ProfileMenu />
       </div>
     </header>
