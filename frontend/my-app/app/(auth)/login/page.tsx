@@ -16,11 +16,13 @@ export default function LoginPage(){
     return (
         <div className="w-full max-w-sm">
             <h2 className="text-2xl font-bold">Entrar</h2>
-            <p className="mt-1.5 text-sm text-muted">Acesse o seu painel de gerenciamento ou crie sua conta!</p>  
+            <p className="mt-1.5 text-sm text-muted-foreground">Acesse o seu painel de gerenciamento ou crie sua conta!</p>  
             <form>
                 <FieldGroup>
                     <Field>
-                    <FieldLabel>
+                    <FieldLabel
+                    htmlFor="email"
+                    >
                         Email
                     </FieldLabel>
                     <Input id="email" type="email" placeholder="Digite seu email" 
@@ -32,7 +34,7 @@ export default function LoginPage(){
                     <Field>
                         <div>
                             <FieldLabel>
-                                Senha
+                              Esqueceu a senha?
                             </FieldLabel>
                             <a href="forgot-passowrd" />
                         </div>
