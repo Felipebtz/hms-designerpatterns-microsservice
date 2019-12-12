@@ -32,13 +32,14 @@ export default function LoginPage(){
                     />
                     </Field>
                     <Field>
-                        <div>
+                        <div className="flex items-center justify-between">
                             <FieldLabel>
-                              Esqueceu a senha?
+                              Senha
                             </FieldLabel>
-                            <a href="forgot-passowrd" />
+                            <a href="forgot-passowrd" className="text-xs font-medium text-primary hover:underline">Esqueceu a senha?</a>
+                            
                         </div>
-                        <Input id="password" type="password" className="h-11" />
+                        <Input id="password" type="password" className="h-11" placeholder=""/>
                     </Field>
 
                     <Button type="submit" className="mt-6 h-11 w-full ">
