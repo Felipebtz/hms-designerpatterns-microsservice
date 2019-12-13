@@ -39,7 +39,7 @@ export default function LoginPage(){
                             <a href="forgot-passowrd" className="text-xs font-medium text-primary hover:underline">Esqueceu a senha?</a>
                             
                         </div>
-                        <Input id="password" type="password" className="h-11" placeholder=""/>
+                        <Input id="password" type="password" className="h-11" placeholder="Digite a sua senha"/>
                     </Field>
 
                     <Button type="submit" className="mt-6 h-11 w-full ">
