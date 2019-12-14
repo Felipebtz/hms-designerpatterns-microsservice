@@ -2,10 +2,6 @@ package com.hms.dto;
 
 import com.hms.entity.Roles;
 import com.hms.entity.User;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
