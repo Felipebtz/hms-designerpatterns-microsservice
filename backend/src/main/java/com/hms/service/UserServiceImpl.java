@@ -40,8 +40,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO getUserById(Long id) throws HmsException  {
-        return
-        userRepository.findById(id).orElseThrow(()->new HmsException("USER_NOT_FOUND")).toDto();
+        return userRepository.findById(id).orElseThrow(()->new HmsException("USER_NOT_FOUND")).toDto();
     }
 
     @Override
