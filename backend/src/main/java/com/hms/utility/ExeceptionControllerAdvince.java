@@ -13,9 +13,9 @@ public class ExeceptionControllerAdvince {
 
     @ExceptionHandler(Exeception.class){
         public ResponseEntity<ErrorInfo> exceptionHandler(Exception e){
-            ErrorInfo error = new ErrorInfo(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value(), LocalDateTime.now());
-            return  new ResponseEntity<>(error, HttpStatus.NOT_FOUND)
+            ErrorInfo error = new ErrorInfo(("Some error Ocurred"), HttpStatus.INTERNAL_SERVER_ERROR.value(), LocalDateTime.now());
+            return  new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
         }
     }
-    
+      
 }

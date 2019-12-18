@@ -6,12 +6,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Retornar o erro padronizado ao frontend
+ */
 @Data 
 @AllArgsConstructor 
 @NoArgsConstructor 
 
 public class ErrorInfo {
     private String errorMessage;
-    private Long errorCode;
+    private Integer errorCode;
     private LocalDateTime timestamp;
 }
