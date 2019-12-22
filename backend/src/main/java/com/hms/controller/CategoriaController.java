@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.hms.dto.ResponseDTO;
 import com.hms.entity.Categoria;
-import com.hms.repository.CategoriaRepository;
+import com.hms.service.CategoriaService;
 
 
 @RestController 
@@ -17,19 +17,22 @@ import com.hms.repository.CategoriaRepository;
 
 
 public class CategoriaController {
+    private final CategoriaService categoriaService;
+    
 
-    private final CategoriaRepository categoriaRepository;
-
-    public CategoriaController(CategoriaRepository categoriaRepository) {
-        this.categoriaRepository = categoriaRepository;
+    public CategoriaController(CategoriaService categoriaService) {
+        this.categoriaService = categoriaService;
     }
 
     @PostMapping("/register")
-    public Categoria postMethodName(@RequestBody Categoria categoria) {
-        return categoriaRepository.save(categoria)
+    public ResponseEntity<ResponseDTO>registerCategoria(@RequestBody Categoria categoria) {
 
-        ResponseEntity 
+        categoriaService.registerCategoria(categoria);
+
+        return ResponseEntity
         .status(HttpStatus.CREATED)
-        .body(new ResponseDTO("Categoria criada com sucesso!"));
+        .body(new ResponseDTO(
+            "Categoria criada com sucesso!"
+        ));
     }
 }
