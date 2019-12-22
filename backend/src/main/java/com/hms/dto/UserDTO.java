@@ -3,6 +3,7 @@ package com.hms.dto;
 import com.hms.entity.Roles;
 import com.hms.entity.User;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +18,7 @@ public class UserDTO {
     @NotBlank (message = "O nome é obrigátorio")
     private String name;
     @NotBlank (message = "O email é obrigátorio")
+    @Email (message = "Formato do e-mail precisa ser válido")
     private String email;
      @NotBlank (message = "A senha é obrigátoria")
     private String password;
