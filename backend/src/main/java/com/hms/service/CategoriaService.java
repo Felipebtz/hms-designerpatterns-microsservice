@@ -1,10 +1,13 @@
 package com.hms.service;
 
+import org.springframework.stereotype.Service;
+
 import com.hms.entity.Categoria;
 import com.hms.repository.CategoriaRepository;
 
 import jakarta.transaction.Transactional;
 
+@Service 
 public class CategoriaService {
     
     private CategoriaRepository categoriaRepository;
